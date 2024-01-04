@@ -17,7 +17,23 @@ def isAnagramByMap(s, t):
             return False
     return True
 
+def isAnagram(s,t):
+    if(len(s)!=len(t)):
+        return False
+    countS,countT={},{}
+    for i in range(len(s)):
+        if s[i] in countS:
+            countS[s[i]]=1+countS[s[i]]
+        else:
+            countS[s[i]]=1
 
+        if t[i] in countT:
+            countT[t[i]]=1+countT[t[i]]
+        else:
+            countT[t[i]]=1
+
+    return countS==countT
 
 print(isAnagramByCount("head","deah"))        
-print(isAnagramByMap("head","deah"))        
+print(isAnagramByMap("head","deah")) 
+print(isAnagram("head","deah"))        
